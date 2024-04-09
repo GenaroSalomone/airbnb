@@ -1,17 +1,51 @@
+# ---
+# include:
+#   - "**/*.rb"
+# exclude:
+#   - spec/**/*
+#   - test/**/*
+#   - vendor/**/*
+#   - ".bundle/**/*"
+# require: []
+# domains: []
+# reporters:
+#   - rubocop
+#   - require_not_found
+#   - typecheck:strict
+# formatter:
+#   rubocop:
+#     cops: safe
+#     except: []
+#     only: []
+#     extra_args: []
+# require_paths: []
+# plugins: []
+# max_files: 5000
+
+#Solargarph config for rails
 ---
 include:
-  - "**/*.rb"
+  - "app/**/*.rb"
+  - "config/**/*.rb"
+  - "lib/**/*.rb"
 exclude:
   - spec/**/*
-  - test/**/*
   - vendor/**/*
   - ".bundle/**/*"
-require: []
+require:
+  - actionmailer
+  - actionpack
+  - actionview
+  - activejob
+  - activemodel
+  - activerecord
+  - activesupport
 domains: []
 reporters:
   - rubocop
   - require_not_found
-  - typecheck:strict
+  - typecheck
+  - update_errors
 formatter:
   rubocop:
     cops: safe
@@ -19,5 +53,6 @@ formatter:
     only: []
     extra_args: []
 require_paths: []
-plugins: []
+plugins:
+  - solargraph-rails
 max_files: 5000
